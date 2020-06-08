@@ -2,10 +2,9 @@ import os
 import random
 
 from discord.ext import commands
-from dotenv import load_dotenv
+from boto.s3.connection import S3Connection
 
-load_dotenv()
-TOKEN = os.getenv('DISCORD_TOKEN')
+TOKEN = S3Connection(os.environ['DISCORD_TOKEN'])
 
 bot = commands.Bot(command_prefix='!')
 
