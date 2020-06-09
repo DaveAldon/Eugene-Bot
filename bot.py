@@ -25,18 +25,4 @@ async def nine_nine(ctx):
     response = random.choice(brooklyn_99_quotes)
     await ctx.send(response)
 
-@bot.command(name='poop', help='When ya gotta dump')
-async def poop(ctx):
-    poop_ascii = ["""
-░░▄▀░░░▐░░░░░█▄▀░▐░░░░░
-░░█░░░▐░░░░░░░░▄░█░░░░░
-░░░█▄░░▀▄░░░░▄▀▐░█░░░░░
-░░░█▐▀▀▀░▀▀▀▀░░▐░█░░░░░
-░░▐█▐░░░▀░░░░░░▐░█▄▄░░░
-░░▀▀░░▄▄▄▄▄░░░░▐▄▄▄▀░░░
-░░░░░░░░░░░░░░░░░░░░░░░
-    """]
-    response = random.choice(poop_ascii)
-    await ctx.send(response)
-
 bot.run(TOKEN)
