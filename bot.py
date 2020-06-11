@@ -1,16 +1,22 @@
 import os
 import random
+import requests
+import urllib, json
 
 from discord.ext import commands
 
 TOKEN = os.getenv('DISCORD_TOKEN')
+QUOTE_URL = os.getenv('QUOTE_URL')
 
 bot = commands.Bot(command_prefix='!')
 
-
-
 @bot.command(name='99', help='Responds with a random quote from Brooklyn 99')
 async def nine_nine(ctx):
+    f = urllib.urlopen(QUOTE_URL)
+    values = json.load(f)
+    f.close()
+    response = values['quote']
+    """
     brooklyn_99_quotes = [
         'I\'m the human form of the 💯 emoji.',
         'Bingpot!',
@@ -19,8 +25,9 @@ async def nine_nine(ctx):
             'no doubt no doubt no doubt no doubt.'
         ),
     ]
+    """
 
-    response = random.choice(brooklyn_99_quotes)
+    # response = random.choice(quote)
     await ctx.send(response)
 
 bot.run(TOKEN)
